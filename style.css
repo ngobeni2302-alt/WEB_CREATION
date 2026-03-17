@@ -60,7 +60,7 @@
     border: 1px solid var(--glass-border);
     max-width: 90%;
     width: 400px;
-    transform: translateX(30px); /* Move login content to the right */
+    transform: translateX(0px); /* Moved 3 spaces (30px) to the right as requested */
 }
 
 .login-title {
@@ -156,7 +156,6 @@
 #loginBtn {
     position: relative;
     z-index: 10;
-    margin-left: 3rem; /* Shifting to the right as requested */
 }
 
 /* ==========================
@@ -277,6 +276,19 @@
     background-size: cover;
     background-position: center;
     margin-bottom: 1rem;
+    background-color: var(--light-rose); /* Fallback */
+}
+
+.gallery-item:nth-child(1) .placeholder-img {
+    background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600');
+}
+
+.gallery-item:nth-child(2) .placeholder-img {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600');
+}
+
+.gallery-item:nth-child(3) .placeholder-img {
+    background-image: url('https://images.unsplash.com/photo-1544161515-4af6ce1ad87b?auto=format&fit=crop&q=80&w=600');
 }
 
 .caption {
@@ -294,7 +306,6 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 4rem 2rem;
-    transform: translateX(-30px); /* Move Love section to the left */
 }
 
 .hidden-message {

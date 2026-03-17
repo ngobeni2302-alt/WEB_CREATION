@@ -3,7 +3,7 @@ import sys
 
 def generate_qr():
     # Detect the active port from the user's running command (3002)
-    url = "http://172.26.200.93:3002"
+    url = "http://172.26.200.61:8000"
     
     # 1. Generate Terminal ASCII QR
     qr_ascii = qrcode.QRCode(version=1, box_size=1, border=2)
