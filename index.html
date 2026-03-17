@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="overlay">
+        <div class="login-container">
+            <h2 class="login-title">For Your Eyes Only</h2>
+            <div class="input-group">
+                <input type="password" id="passwordInput" placeholder="Password" autofocus>
+                <div id="errorMessage" class="error-text"></div>
+            </div>
+            <button id="loginBtn" class="premium-btn">Unlock</button>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="overlay hidden">
+        <div class="loading-container">
+            <span class="loading-letter">B</span>
+            <span class="loading-letter">o</span>
+            <span id="centerLetter" class="loading-letter">n</span>
+            <span class="loading-letter">K</span>
+            <span class="loading-letter">o</span>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden Initially) -->
+    <div id="mainContent" class="hidden">
+        <header class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="reveal">My <span class="love-word">L</span>ove</h1>
+                <p class="subtitle reveal delay-1">Every moment with you is a treasure.</p>
+            </div>
+        </header>
+
+    <main>
+        <section class="story section-padding">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="text-content reveal">
+                        <h2>Our Story</h2>
+                        <p>From the moment we met, everything changed. You brought color to my world, and every day I find myself loving you more.</p>
+                        <p>This little corner of the internet is just for you. A reminder of how much you mean to me.</p>
+                    </div>
+                    <div class="image-content reveal right">
+                        <!-- Removed flower accent as requested -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery section-padding">
+            <div class="container text-center">
+                <h2 class="reveal">A Thousand Words</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item glass reveal">
+                        <div class="placeholder-img" style="background-color: var(--light-rose)"></div>
+                        <p class="caption">Our beautiful moments</p>
+                    </div>
+                    <div class="gallery-item glass reveal delay-1">
+                        <div class="placeholder-img" style="background-color: var(--deep-rose)"></div>
+                        <p class="caption">Smiles that light up my day</p>
+                    </div>
+                    <div class="gallery-item glass reveal delay-2">
+                        <div class="placeholder-img" style="background-color: var(--primary-pink)"></div>
+                        <p class="caption">Just you and me</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="message section-padding">
+            <div class="container text-center">
+                <div class="love-card glass reveal">
+                    <h2>I Love You</h2>
+                    <p>More than words can express.</p>
+                    <button id="loveBtn" class="premium-btn">Click me</button>
+                    <div id="hiddenMessage" class="hidden-message">
+                        <p>You are my today and all of my tomorrows. 💕</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with love, just for you. &copy; <span id="year"></span></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

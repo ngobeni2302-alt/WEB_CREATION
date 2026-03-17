@@ -1,0 +1,1 @@
+Standard QR code successfully generated at assets/heart_qr.png
