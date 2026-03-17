@@ -112,8 +112,38 @@ document.addEventListener('DOMContentLoaded', () => {
         "Your soul is just as breathtakingly beautiful as your physical appearance. 🦋",
         "I apologize for the times I'm stubborn; my love for you is bigger than that. ❤️",
         "You are my safe space, my home, and my greatest treasure. 🏡",
-        "No matter what happens, my heart belongs completely to you. 🔐"
+        "No matter what happens, my heart belongs completely to you. 🔐",
+        "She is clothed with strength and dignity, and she laughs without fear of the future. (Proverbs 31:25) ✨",
+        "You were created for such a time as this. Your purpose is divine and your heart is gold. 👑",
+        "A strong woman knows she has strength enough for the journey, but a woman of strength knows it is in the journey where she will become strong. 🌸",
+        "God is within her, she will not fall. (Psalm 46:5) 🛡️",
+        "Your worth is far above rubies. Never forget how precious you are in the eyes of your Creator. 💎",
+        "Beautiful girl, you were made to do hard things. So believe in yourself. 💫",
+        "Let your light shine so brightly that others can see the way out of the dark. 💡",
+        "You are capable, you are resilient, and you are deeply loved. 蝴蝶",
+        "Confidence is not 'they will like me.' Confidence is 'I’ll be fine if they don’t.' 🌿",
+        "Success is not final, failure is not fatal: it is the courage to continue that counts. 🏔️",
+        "Love is patient, love is kind. It does not envy, it does not boast, it is not proud. (1 Corinthians 13:4) ❤️",
+        "Let all that you do be done in love. (1 Corinthians 16:14) 🕊️",
+        "We love because He first loved us. (1 John 4:19) 🙌",
+        "Above all, keep loving one another earnestly, since love covers a multitude of sins. (1 Peter 4:8) 🔗",
+        "Two are better than one... for if they fall, one will lift up his fellow. (Ecclesiastes 4:9-10) 🤝",
+        "I have found the one whom my soul loves. (Song of Solomon 3:4) 💍",
+        "The Lord make your love increase and overflow for each other. (1 Thessalonians 3:12) 🌊",
+        "Be kind to one another, tenderhearted, forgiving one another, as God in Christ forgave you. (Ephesians 4:32) 💖",
+        "Set me as a seal upon your heart, as a seal upon your arm, for love is strong as death. (Song of Solomon 8:6) ⚓",
+        "True love isn't just a feeling; it's a commitment to honor God through how we treat each other. ⛪"
     ];
+    // Shuffle Utility
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
+
+    // Shuffle quotes initially
+    shuffleArray(quotes);
     let quoteIndex = 0;
 
     if (loveBtn && hiddenMessage && messageContainer) {
@@ -123,6 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Move to the next quote, looping back to the start if needed
             quoteIndex = (quoteIndex + 1) % quotes.length;
+            
+            // If we've reached the end, reshuffle for next round
+            if (quoteIndex === 0) shuffleArray(quotes);
             
             // Keep the message visible
             hiddenMessage.classList.add('show');
