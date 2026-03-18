@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Dashboard - Secure Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard">
+    <div class="dashboard-sidebar">
+        <h1>Dev Dashboard</h1>
+        <p>This is your development environment. To the right, you can see the mobile view of your secure website.</p>
+        
+        <div class="status-panel">
+            <h3>Server Status</h3>
+            <p>Running on: <code>http://localhost:8000</code></p>
+        </div>
+
+        <div class="instructions">
+            <h3>Security Features</h3>
+            <ul>
+                <li>Content Security Policy (CSP)</li>
+                <li>X-Frame-Options: SAMEORIGIN</li>
+                <li>HSTS Enabled</li>
+            </ul>
+        </div>
+
+        <div class="actions">
+            <button onclick="document.getElementById('mobile-frame').src='app.html'">Reload App</button>
+        </div>
+    </div>
+
+    <div class="phone-simulator">
+        <div class="phone-frame">
+            <iframe id="mobile-frame" src="app.html"></iframe>
+        </div>
+    </div>
+</body>
+</html>
