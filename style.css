@@ -1,7 +1,7 @@
 :root {
     --primary: #D8A7B1; /* Dusty Pink */
     --primary-dark: #B38B95;
-    --background: #F4EEED; /* Soft Off-White */
+    --background: #D8A7B1; /* Changed to match Dusty Pink */
     --surface: #FFFFFF;
     --text: #4E4E4E;
     --text-muted: #8E8E8E;
