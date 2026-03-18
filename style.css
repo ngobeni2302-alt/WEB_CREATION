@@ -152,14 +152,6 @@ body {
     background: var(--background);
 }
 
-.status-bar {
-    padding: 0.5rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
 header {
     background: var(--surface);
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
