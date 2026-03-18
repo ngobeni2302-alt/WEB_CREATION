@@ -1,5 +1,7 @@
 import qrcode
 import socket
+import sys
+import os
 
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -14,8 +16,11 @@ def get_ip():
     return IP
 
 def generate_qr():
-    ip = get_ip()
-    url = f"http://{ip}:8000/app.html"
+    if len(sys.argv) > 1:
+        url = sys.argv[1]
+    else:
+        ip = get_ip()
+        url = f"http://{ip}:8000/app.html"
     
     # 1. Generate Terminal ASCII QR
     qr_ascii = qrcode.QRCode(version=1, box_size=1, border=2)
