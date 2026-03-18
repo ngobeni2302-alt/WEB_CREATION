@@ -51,5 +51,5 @@ def generate_qr():
     img.save("assets/final_qr.png")
 
 if __name__ == "__main__":
-    import os
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     generate_qr()
