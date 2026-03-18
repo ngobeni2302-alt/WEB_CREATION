@@ -8,43 +8,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="mobile-app">
-    <header>
-        <div class="status-bar">
-            <span>9:41</span>
-            <div class="icons">📶 🔋</div>
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="overlay">
+        <div class="login-box">
+            <input type="password" id="password-input" placeholder="Password" autofocus>
+            <button id="login-btn">Login</button>
+            <div id="error-msg" class="error-msg"></div>
         </div>
-        <nav>
-            <h1>SecureVault</h1>
-            <button class="menu-btn">☰</button>
-        </nav>
-    </header>
-    
-    <main>
-        <section class="hero">
-            <h2>Your Data, Secured.</h2>
-            <p>Experience the next generation of mobile security.</p>
-            <button class="cta-btn">Get Started</button>
-        </section>
-        
-        <section class="features">
-            <div class="card">
-                <h3>End-to-End Encryption</h3>
-                <p>Only you can see your data.</p>
-            </div>
-            <div class="card">
-                <h3>Biometric Lock</h3>
-                <p>Unlock with your fingerprint or face.</p>
-            </div>
-        </section>
-    </main>
+    </div>
 
-    <footer>
-        <nav class="tab-bar">
-            <a href="#" class="active">🏠</a>
-            <a href="#">🔒</a>
-            <a href="#">👤</a>
-            <a href="#">⚙️</a>
-        </nav>
-    </footer>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="overlay hidden">
+        <div class="loading-text" id="loading-text">
+            <span>B</span><span>o</span><span>n</span><span>K</span><span>o</span>
+        </div>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <header>
+            <div class="status-bar">
+                <span>9:41</span>
+                <div class="icons">📶 🔋</div>
+            </div>
+            <nav>
+                <h1>SecureVault</h1>
+                <button class="menu-btn">☰</button>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="hero">
+                <h2>Welcome back!</h2>
+                <p>Everything you love, kept safe and sound.</p>
+                <button class="cta-btn">View Memories</button>
+            </section>
+            
+            <section class="features">
+                <div class="card">
+                    <h3>Secure Messages</h3>
+                    <p>Encryption for every word.</p>
+                </div>
+                <div class="card">
+                    <h3>Private Gallery</h3>
+                    <p>Hidden with "BonKo" protection.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <nav class="tab-bar">
+                <a href="#" class="active">🏠</a>
+                <a href="#">🔒</a>
+                <a href="#">👤</a>
+                <a href="#">⚙️</a>
+            </nav>
+        </footer>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

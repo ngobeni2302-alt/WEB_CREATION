@@ -1,10 +1,11 @@
 :root {
-    --primary: #6366f1;
-    --background: #0f172a;
-    --surface: #1e293b;
-    --text: #f8fafc;
-    --text-muted: #94a3b8;
-    --accent: #10b981;
+    --primary: #D8A7B1; /* Dusty Pink */
+    --primary-dark: #B38B95;
+    --background: #F4EEED; /* Soft Off-White */
+    --surface: #FFFFFF;
+    --text: #4E4E4E;
+    --text-muted: #8E8E8E;
+    --accent: #FAE1DF; /* Light Pink Accent */
 }
 
 * {
@@ -18,32 +19,113 @@ body {
     background: var(--background);
     color: var(--text);
     line-height: 1.5;
+    overflow: hidden; /* Prevent scroll during login/loading */
 }
 
-/* Dev Dashboard Styles */
+/* Auth & Loading Overlays */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Login Styles */
+.login-box {
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.login-box button {
+    background: var(--surface);
+    color: var(--primary-dark);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.error-msg {
+    color: #fff;
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    height: 1.2rem;
+}
+
+/* Loading Animation Styles */
+.loading-text {
+    display: flex;
+    font-size: 4rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 0.5rem;
+}
+
+.loading-text span {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInLetter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Center 'n' specifically if needed, but flex center handles it usually.
+   To be precise, we ensure equal spacing. */
+
+/* Dev Dashboard & Phone Simulator Styles */
 .dashboard {
     display: flex;
     height: 100vh;
-    overflow: hidden;
+    background: #2D2D2D;
 }
 
 .dashboard-sidebar {
     flex: 1;
     padding: 2rem;
-    background: #000000;
-    border-right: 1px solid var(--surface);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    color: #EEE;
+    border-right: 1px solid #444;
 }
 
 .phone-simulator {
     width: 440px;
-    background: #334155;
-    padding: 60px 20px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #1a1a1a;
 }
 
 .phone-frame {
@@ -53,8 +135,7 @@ body {
     border-radius: 40px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    border: 8px solid #1e293b;
+    border: 12px solid #000;
 }
 
 .phone-frame iframe {
@@ -79,27 +160,37 @@ body {
     font-weight: 600;
 }
 
+header {
+    background: var(--surface);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
 nav h1 {
     font-size: 1.25rem;
     padding: 1rem 1.5rem;
+    color: var(--primary-dark);
 }
 
 .hero {
-    padding: 3rem 1.5rem;
-    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    padding: 4rem 1.5rem;
+    background: var(--accent);
     text-align: center;
     margin: 1rem;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
+}
+
+.hero h2 {
+    color: var(--primary-dark);
 }
 
 .cta-btn {
-    background: var(--text);
-    color: var(--primary);
+    background: var(--primary);
+    color: white;
     border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
     font-weight: 600;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     cursor: pointer;
 }
 
@@ -107,24 +198,25 @@ nav h1 {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .card {
     background: var(--surface);
     padding: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
 .tab-bar {
-    position: fixed;
+    position: sticky;
     bottom: 0;
-    width: 375px;
+    width: 100%;
     background: var(--surface);
     display: flex;
     justify-content: space-around;
     padding: 1rem 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .tab-bar a {
