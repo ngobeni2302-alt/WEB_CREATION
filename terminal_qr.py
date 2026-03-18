@@ -27,12 +27,15 @@ def generate_qr():
     qr_ascii.add_data(url)
     qr_ascii.make(fit=True)
     
+    print("\n" + "🚀 SERVER IS LIVE 🚀".center(40, " "))
     print("\n" + "="*40)
     print(" SCAN THIS TO OPEN ON YOUR PHONE ".center(40, "="))
     print("="*40 + "\n")
     qr_ascii.print_ascii(invert=True)
     print("\n" + "="*40)
     print(f" URL: {url} ".center(40, "="))
+    print("="*40 + "\n")
+    print(" Make sure your phone is on the same WiFi! ".center(40))
     print("="*40 + "\n")
 
     # 2. Generate Image file
