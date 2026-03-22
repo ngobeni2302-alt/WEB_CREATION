@@ -201,11 +201,99 @@ nav h1 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
+.card-button {
+    width: 100%;
+    border: none;
+    text-align: left;
+    color: inherit;
+    cursor: pointer;
+}
+
+.card-button:active {
+    transform: scale(0.99);
+}
+
 .card h3 {
     font-family: 'Noto Sans Cherokee', 'Playfair Display', serif;
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
     color: var(--primary-dark);
+}
+
+.memories-panel {
+    margin: 1rem;
+    padding: 1.25rem;
+    border-radius: 1.75rem;
+    background:
+        linear-gradient(145deg, rgba(255,255,255,0.95), rgba(250,225,223,0.92));
+    box-shadow: 0 20px 35px rgba(78, 78, 78, 0.12);
+    animation: slideUp 0.45s ease forwards;
+}
+
+.memories-panel.hidden {
+    display: none;
+}
+
+.memories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.memories-kicker {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18rem;
+    color: var(--primary-dark);
+    opacity: 0.8;
+}
+
+.memories-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-dark);
+}
+
+.memories-copy {
+    margin-bottom: 1.25rem;
+    color: var(--text);
+}
+
+.memories-close {
+    border: none;
+    border-radius: 999px;
+    padding: 0.65rem 1rem;
+    background: var(--primary-dark);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.memory-card {
+    overflow: hidden;
+    border-radius: 1.2rem;
+    min-height: 165px;
+    background: #f4d5d9;
+    box-shadow: 0 12px 22px rgba(78, 78, 78, 0.12);
+}
+
+.memory-card:first-child {
+    grid-column: 1 / -1;
+    min-height: 230px;
+}
+
+.memory-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .tab-bar {
@@ -285,5 +373,15 @@ nav h1 {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 420px) {
+    .memories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-card:first-child {
+        grid-column: auto;
     }
 }
