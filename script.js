@@ -6,84 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingOverlay = document.getElementById('loading-overlay');
     const loadingText = document.getElementById('loading-text');
     const mainContent = document.getElementById('main-content');
-    const viewMemoriesBtn = document.getElementById('view-memories-btn');
-    const memoriesPanel = document.getElementById('memories-panel');
-    const memoriesGrid = document.getElementById('memories-grid');
-    const closeMemoriesBtn = document.getElementById('close-memories-btn');
-
-    const MEMORY_COUNT = 5;
-    const MEMORY_STORAGE_KEY = 'bonko-view-memories';
-
-    const buildMemoryUrls = () => {
-        const stamp = Date.now();
-
-        return Array.from({ length: MEMORY_COUNT }, (_, index) => {
-            const seed = `${stamp}-${Math.random().toString(36).slice(2)}-${index}`;
-            return `https://picsum.photos/seed/${seed}/900/1200`;
-        });
-    };
-
-    const getStoredMemories = () => {
-        try {
-            const storedMemories = JSON.parse(localStorage.getItem(MEMORY_STORAGE_KEY) || '[]');
-            return Array.isArray(storedMemories) ? storedMemories.slice(0, MEMORY_COUNT) : [];
-        } catch (error) {
-            return [];
-        }
-    };
-
-    const storeMemories = (memoryUrls) => {
-        localStorage.setItem(MEMORY_STORAGE_KEY, JSON.stringify(memoryUrls));
-    };
-
-    const renderMemories = (memoryUrls) => {
-        if (!memoriesGrid) {
-            return;
-        }
-
-        memoriesGrid.innerHTML = '';
-
-        memoryUrls.forEach((url, index) => {
-            const memoryCard = document.createElement('article');
-            memoryCard.className = 'memory-card';
-
-            const memoryImage = document.createElement('img');
-            memoryImage.className = 'memory-image';
-            memoryImage.src = url;
-            memoryImage.alt = `Memory photo ${index + 1}`;
-            memoryImage.loading = 'lazy';
-            memoryImage.referrerPolicy = 'no-referrer';
-
-            memoryCard.appendChild(memoryImage);
-            memoriesGrid.appendChild(memoryCard);
-        });
-    };
-
-    const ensureMemories = () => {
-        const storedMemories = getStoredMemories();
-
-        if (storedMemories.length === MEMORY_COUNT) {
-            renderMemories(storedMemories);
-            return storedMemories;
-        }
-
-        const newMemories = buildMemoryUrls();
-        storeMemories(newMemories);
-        renderMemories(newMemories);
-        return newMemories;
-    };
-
-    const openMemories = () => {
-        ensureMemories();
-        memoriesPanel.classList.remove('hidden');
-        memoriesPanel.setAttribute('aria-hidden', 'false');
-        memoriesPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
-    const closeMemories = () => {
-        memoriesPanel.classList.add('hidden');
-        memoriesPanel.setAttribute('aria-hidden', 'true');
-    };
 
     const handleLogin = () => {
         const password = passwordInput.value;
@@ -118,14 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     passwordInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') handleLogin();
     });
-
-    if (viewMemoriesBtn) {
-        viewMemoriesBtn.addEventListener('click', openMemories);
-    }
-
-    if (closeMemoriesBtn) {
-        closeMemoriesBtn.addEventListener('click', closeMemories);
-    }
 
     // --- Quote Generator Logic ---
     const quoteBtn = document.getElementById('quote-btn');
