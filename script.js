@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startLoading = () => {
         loginOverlay.classList.add('hidden');
         loadingOverlay.classList.remove('hidden');
+        sessionStorage.setItem(window.BonKoAuth?.AUTH_KEY || 'bonko_authenticated', 'true');
 
         const letters = loadingText.querySelectorAll('span');
         letters.forEach((letter, index) => {
@@ -30,9 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // After all letters have appeared (5 letters * 0.4s + 0.5s fade)
         setTimeout(() => {
-            loadingOverlay.classList.add('hidden');
-            mainContent.style.display = 'block';
-            document.body.style.overflow = 'auto';
+            if (window.BonKoAuth?.showLoggedInState) {
+                window.BonKoAuth.showLoggedInState();
+            } else {
+                loadingOverlay.classList.add('hidden');
+                mainContent.style.display = 'block';
+                document.body.style.overflow = 'auto';
+            }
         }, (letters.length * 400) + 1000);
     };
 

@@ -9,17 +9,76 @@
 </head>
 <body class="gallery-page">
     <main class="gallery-shell">
+        <div class="gallery-topbar">
+            <div class="menu-wrap">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-panel">
+                    Menu
+                </button>
+                <div id="menu-panel" class="menu-panel hidden" aria-hidden="true">
+                    <button class="menu-action" type="button" data-logout>Logout</button>
+                </div>
+            </div>
+        </div>
         <a class="gallery-back" href="app.html">Back</a>
         <section class="gallery-hero">
             <p class="gallery-kicker">Our Time Together</p>
             <h1>Pieces Of Us</h1>
-            <p>
-                Let's Take A Scroll Down Memory Lane
-                <img class="gallery-inline-photo" src="https://picsum.photos/seed/memory-lane/72/72" alt="A small memory-themed photo" loading="lazy" referrerpolicy="no-referrer">
-            </p>
+            <p>Let's Take A Scroll Down Memory Lane</p>
         </section>
-        <section id="gallery-grid" class="gallery-grid" aria-live="polite"></section>
+        <section id="gallery-grid" class="gallery-grid gallery-video-grid" aria-label="Our time together videos">
+            <article class="gallery-card gallery-video-card">
+                <video class="gallery-video" controls playsinline preload="metadata" controlsList="nodownload" aria-label="Memory video 1">
+                    <source src="assets/videos/lv_7267507699435179269_20260326025731.mp4" type="video/mp4">
+                </video>
+                <p class="gallery-caption">Every second with you feels special.</p>
+            </article>
+            <article class="gallery-card gallery-video-card">
+                <video class="gallery-video" controls playsinline preload="none" controlsList="nodownload" aria-label="Memory video 2">
+                    <source src="assets/videos/lv_7466821341375712573_20260326025230.mp4" type="video/mp4">
+                </video>
+                <p class="gallery-caption">You make ordinary moments beautiful.</p>
+            </article>
+            <article class="gallery-card gallery-video-card">
+                <video class="gallery-video" controls playsinline preload="none" controlsList="nodownload" aria-label="Memory video 3">
+                    <source src="assets/videos/lv_7528575583660281141_20260326025052.mp4" type="video/mp4">
+                </video>
+                <p class="gallery-caption">My heart smiles whenever I see you.</p>
+            </article>
+            <article class="gallery-card gallery-video-card">
+                <video class="gallery-video" controls playsinline preload="none" controlsList="nodownload" aria-label="Memory video 4">
+                    <source src="assets/videos/lv_7530604850082581821_20260326025403.mp4" type="video/mp4">
+                </video>
+                <p class="gallery-caption">You are my soft place to land.</p>
+            </article>
+            <article class="gallery-card gallery-video-card">
+                <video class="gallery-video" controls playsinline preload="none" controlsList="nodownload" aria-label="Memory video 5">
+                    <source src="assets/videos/lv_7533633356865522997_20260227230714.mp4" type="video/mp4">
+                </video>
+                <p class="gallery-caption">Us together is my favorite story.</p>
+            </article>
+        </section>
     </main>
-    <script src="gallery.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = Array.from(document.querySelectorAll('.gallery-video'));
+            let activeVideo = null;
+
+            videos.forEach((video) => {
+                video.addEventListener('play', () => {
+                    if (activeVideo && activeVideo !== video) {
+                        activeVideo.pause();
+                    }
+                    activeVideo = video;
+                });
+
+                video.addEventListener('ended', () => {
+                    if (activeVideo === video) {
+                        activeVideo = null;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

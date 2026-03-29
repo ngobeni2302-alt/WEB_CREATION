@@ -26,7 +26,15 @@
 
     <div id="main-content" style="display: none;">
         <header>
-            <nav>
+            <nav class="top-nav">
+                <div class="menu-wrap">
+                    <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-panel">
+                        Menu
+                    </button>
+                    <div id="menu-panel" class="menu-panel hidden" aria-hidden="true">
+                        <button class="menu-action" type="button" data-logout>Logout</button>
+                    </div>
+                </div>
                 <h1>ᏰᎧᏁᏦᎧ</h1>
             </nav>
         </header>
@@ -34,7 +42,7 @@
         <main>
             <section class="hero">
                 <h2>Hey, Murhandziwa ❤️</h2>
-                <p>From my heart to yours...<br>Everything you love, kept safe and sound.</p>
+                <p>From my heart to yours...<br>I LOVE YOU ❤️</p>
             </section>
             
             <section class="features">
@@ -59,6 +67,7 @@
             </section>
         </main>
     </div>
+    <script src="auth.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

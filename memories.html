@@ -9,32 +9,60 @@
 </head>
 <body class="gallery-page">
     <main class="gallery-shell">
+        <div class="gallery-topbar">
+            <div class="menu-wrap">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-panel">
+                    Menu
+                </button>
+                <div id="menu-panel" class="menu-panel hidden" aria-hidden="true">
+                    <button class="menu-action" type="button" data-logout>Logout</button>
+                </div>
+            </div>
+        </div>
         <a class="gallery-back" href="app.html">Back</a>
         <section class="gallery-hero">
             <p class="gallery-kicker">View Memories</p>
             <h1>Our Photo Vault</h1>
             <p>
                 Memories To Keep You Smiling, For Your Beauty Is Worth Capturing
-                <img class="gallery-inline-photo" src="https://picsum.photos/seed/smiling-memory/72/72" alt="A small smiling memory photo" loading="lazy" referrerpolicy="no-referrer">
+                <img class="gallery-inline-photo" src="assets/images/IMG-20250920-WA0073.jpg" alt="A smiling memory photo" loading="lazy">
             </p>
         </section>
         <section class="gallery-grid" aria-label="Memory photos">
             <article class="gallery-card">
-                <img class="gallery-image" src="https://picsum.photos/seed/memory-one/900/1200" alt="Memory photo 1" loading="eager" referrerpolicy="no-referrer">
+                <img class="gallery-image" src="assets/images/IMG-20250920-WA0073.jpg" alt="Memory photo 1" loading="eager">
+                <p class="gallery-caption">Your smile feels like home.</p>
             </article>
             <article class="gallery-card">
-                <img class="gallery-image" src="https://picsum.photos/seed/memory-two/900/1200" alt="Memory photo 2" loading="lazy" referrerpolicy="no-referrer">
+                <img class="gallery-image" src="assets/images/IMG-20251001-WA0060.jpg" alt="Memory photo 2" loading="lazy">
+                <p class="gallery-caption">You make every moment softer.</p>
             </article>
             <article class="gallery-card">
-                <img class="gallery-image" src="https://picsum.photos/seed/memory-three/900/1200" alt="Memory photo 3" loading="lazy" referrerpolicy="no-referrer">
+                <img class="gallery-image" src="assets/images/IMG-20250920-WA0079.jpg" alt="Memory photo 3" loading="lazy">
+                <p class="gallery-caption">My heart pauses for you.</p>
             </article>
             <article class="gallery-card">
-                <img class="gallery-image" src="https://picsum.photos/seed/memory-four/900/1200" alt="Memory photo 4" loading="lazy" referrerpolicy="no-referrer">
+                <img class="gallery-image" src="assets/images/IMG-20260211-WA0012.jpg" alt="Memory photo 4" loading="lazy">
+                <p class="gallery-caption">You are my favorite view.</p>
             </article>
             <article class="gallery-card">
-                <img class="gallery-image" src="https://picsum.photos/seed/memory-five/900/1200" alt="Memory photo 5" loading="lazy" referrerpolicy="no-referrer">
+                <img class="gallery-image" src="assets/images/Screenshot_20260322_204252_WhatsApp.jpg" alt="Memory photo 5" loading="lazy">
+                <p class="gallery-caption">Even your silly side is adorable.</p>
+            </article>
+            <article class="gallery-card">
+                <img class="gallery-image" src="assets/images/IMG-20260312-WA0003.jpg" alt="Memory photo 6" loading="lazy">
+                <p class="gallery-caption">You shine without even trying.</p>
+            </article>
+            <article class="gallery-card">
+                <img class="gallery-image" src="assets/images/IMG-20251221-WA0002.jpg" alt="Memory photo 7" loading="lazy">
+                <p class="gallery-caption">Beautiful, calm, and all mine to admire.</p>
+            </article>
+            <article class="gallery-card">
+                <img class="gallery-image" src="assets/images/Snapchat-1634681964.jpg" alt="Memory photo 8" loading="lazy">
+                <p class="gallery-caption">Us looks so good on you.</p>
             </article>
         </section>
     </main>
+    <script src="auth.js"></script>
 </body>
 </html>

@@ -5,26 +5,43 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    const IMAGE_COUNT = 5;
-    const pageSeed = `${window.location.pathname}-${Date.now()}`;
+    const videoEntries = [
+        'assets/videos/lv_7267507699435179269_20260326025731.mp4',
+        'assets/videos/lv_7466821341375712573_20260326025230.mp4',
+        'assets/videos/lv_7528575583660281141_20260326025052.mp4',
+        'assets/videos/lv_7530604850082581821_20260326025403.mp4',
+        'assets/videos/lv_7533633356865522997_20260227230714.mp4'
+    ];
 
-    const imageUrls = Array.from({ length: IMAGE_COUNT }, (_, index) => {
-        const seed = `${pageSeed}-${index}-${Math.random().toString(36).slice(2)}`;
-        return `https://picsum.photos/seed/${seed}/900/1200`;
-    });
+    let activeVideo = null;
 
-    imageUrls.forEach((url, index) => {
+    videoEntries.forEach((src, index) => {
         const card = document.createElement('article');
-        card.className = 'gallery-card';
+        card.className = 'gallery-card gallery-video-card';
 
-        const image = document.createElement('img');
-        image.className = 'gallery-image';
-        image.src = url;
-        image.alt = `Random picture ${index + 1}`;
-        image.loading = index === 0 ? 'eager' : 'lazy';
-        image.referrerPolicy = 'no-referrer';
+        const video = document.createElement('video');
+        video.className = 'gallery-video';
+        video.src = src;
+        video.controls = true;
+        video.playsInline = true;
+        video.preload = index === 0 ? 'metadata' : 'none';
+        video.setAttribute('controlsList', 'nodownload');
+        video.setAttribute('aria-label', `Memory video ${index + 1}`);
 
-        card.appendChild(image);
+        video.addEventListener('play', () => {
+            if (activeVideo && activeVideo !== video) {
+                activeVideo.pause();
+            }
+            activeVideo = video;
+        });
+
+        video.addEventListener('ended', () => {
+            if (activeVideo === video) {
+                activeVideo = null;
+            }
+        });
+
+        card.appendChild(video);
         galleryGrid.appendChild(card);
     });
 });
