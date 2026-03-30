@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dashboard">
+    <script>
+        // If user wants the Dev Dashboard visible, add ?dev to the URL.
+        // Otherwise load the app directly so the site fills the tab without showing the dashboard.
+        if (!location.search.includes('dev')) {
+            location.replace('app.html');
+        }
+    </script>
+
     <div class="dashboard-sidebar">
         <h1>Dev Dashboard</h1>
         <p>This is your development environment. To the right, you can see the mobile view of your secure website.</p>

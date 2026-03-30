@@ -68,6 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
         showLoggedOutState();
     };
 
+    /* Theme UI removed: DarkMood/LightMood buttons and handlers deleted */
+
+    // Viewport mode detection: set data-mode on body as 'mobile' or 'desktop'
+    const updateViewportMode = () => {
+        const mode = window.innerWidth <= 420 ? 'mobile' : 'desktop';
+        document.body.dataset.mode = mode;
+    };
+
+    window.addEventListener('resize', updateViewportMode);
+    updateViewportMode();
+
     if (!isAppPage && sessionStorage.getItem(AUTH_KEY) !== 'true') {
         window.location.href = 'app.html';
         return;

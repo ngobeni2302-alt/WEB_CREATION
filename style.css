@@ -8,6 +8,39 @@
     --accent: #FAE1DF; /* Light Pink Accent */
 }
 
+/* Ensure the page can fill the whole tab/window */
+html, body {
+    height: 100%;
+}
+
+#main-content {
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Default gallery-shell keeps a readable width on small screens
+   but when in desktop mode let the content fill the tab */
+.gallery-shell {
+    width: min(100%, 560px);
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2.5rem;
+}
+
+body[data-mode="desktop"] .gallery-shell,
+body[data-mode="desktop"] .mobile-app,
+body[data-mode="desktop"] main {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 1rem 1.25rem;
+}
+
+body[data-mode="desktop"] header,
+body[data-mode="desktop"] .hero,
+body[data-mode="desktop"] .gallery-hero {
+    border-radius: 0;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -19,7 +52,7 @@ body {
     background: var(--background);
     color: var(--text);
     line-height: 1.5;
-    overflow: hidden; /* Prevent scroll during login/loading */
+    overflow: auto;
 }
 
 /* Auth & Loading Overlays */
@@ -106,50 +139,14 @@ body {
 /* Center 'n' specifically if needed, but flex center handles it usually.
    To be precise, we ensure equal spacing. */
 
-/* Dev Dashboard & Phone Simulator Styles */
-.dashboard {
-    display: flex;
-    height: 100vh;
-    background: #2D2D2D;
-}
-
-.dashboard-sidebar {
-    flex: 1;
-    padding: 2rem;
-    color: #EEE;
-    border-right: 1px solid #444;
-}
-
-.phone-simulator {
-    width: 440px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #1a1a1a;
-}
-
-.phone-frame {
-    width: 375px;
-    height: 812px;
-    background: white;
-    border-radius: 40px;
-    overflow: hidden;
-    position: relative;
-    border: 12px solid #000;
-}
-
-.phone-frame iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
+/* Desktop / Mobile: remove development phone-simulator so pages open normally
+   on both Desktop and Phone. */
 
 /* Mobile App Styles */
 .mobile-app {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     background: var(--background);
 }
 
@@ -209,6 +206,11 @@ nav h1 {
 
 .menu-panel.hidden {
     display: none;
+}
+
+/* Smooth transitions for UI changes */
+body, .menu-panel, header, .card, .gallery-hero {
+    transition: background-color 240ms ease, color 240ms ease, box-shadow 240ms ease;
 }
 
 .menu-action {
